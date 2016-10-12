@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSettingsTable extends Migration
+class CreateDistrictsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('districts', function(Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('state_id');
+            $table->string('code', 2)->nullable();
             $table->string('name');
-            $table->text('value');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('settings');
+        Schema::drop('districts');
     }
 }

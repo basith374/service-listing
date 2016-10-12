@@ -12,5 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(MinimalSeeder::class);
+        $this->call(StateSeeder::class);
+        $this->call(DistrictSeeder::class);
     }
 }

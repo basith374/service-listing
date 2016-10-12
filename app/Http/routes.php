@@ -16,4 +16,10 @@ Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/logout', 'Auth\AuthController@logout');
 Route::controller('admin', 'AdminController');
-Route::controller('/', 'HomeController');
+
+Route::get('/', 'HomeController@index');
+Route::get('/add-listing', 'HomeController@addListing');
+Route::post('/add-listing', 'HomeController@saveListing');
+Route::post('/post-review', 'HomeController@postReview');
+Route::get('/state/{state}/districts', 'HomeController@districts');
+Route::get('/{locality}/{category}/{business}', 'HomeController@business');

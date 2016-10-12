@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSettingsTable extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,12 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('reviews', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('value');
+            $table->string('business_id');
+            $table->string('review');
+            $table->string('facebook_id');
+            $table->tinyInteger('rating');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('settings');
+        Schema::drop('reviews');
     }
 }

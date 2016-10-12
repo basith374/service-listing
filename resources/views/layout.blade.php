@@ -32,11 +32,12 @@
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        {{-- <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> --}}
-        <link rel="stylesheet" href="css/main.css">
+        {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/select2.css') }}">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="{{ asset('/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
         @yield('head')
     </head>
     <body>
@@ -44,13 +45,35 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="head-bar">
+                        <div class="brand">
+                            <h1 class="title"><a href="{{ url('/') }}">Ente Thalassery</a></h1>
+                        </div>
+                        <div class="links">
+                            <a href="{{ url('/add-listing') }}">Add Listing</a>
+                            <input type="text" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+            </div>
+                @yield('content')
+            <div class="row">
+                <div class="col-xs-12 footer">
+                &copy; Ente Thalassery
+                </div>
+            </div>
+        </div>
 
     	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="{{ asset('/js/vendor/jquery-1.11.2.min.js') }}"><\/script>')</script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="{{ asset('/js/vendor/holder.min.js') }}"></script>
 
+        <script src="{{ asset('/js/vendor/select2.min.js') }}"></script>
 	    @if($settings['google_analytics'])
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
